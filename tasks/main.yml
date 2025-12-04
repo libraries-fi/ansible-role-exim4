@@ -1,6 +1,6 @@
 ---
 
-- include: remove_sendmail.yml
+- include_tasks: remove_sendmail.yml
 
 - name: Install packages for mail sending
   apt:
@@ -29,8 +29,8 @@
     when: exim4_is_smarthost or exim4_use_client_certificates
   tags: ssl
 
-- include: dkim.yml
+- include_tasks: dkim.yml
   when: exim4_enable_dkim
-- include: generic.yml
-- include: certificates.yml
-- include: exim4.yml
+- include_tasks: generic.yml
+- include_tasks: certificates.yml
+- include_tasks: exim4.yml
